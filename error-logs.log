@@ -1,0 +1,42 @@
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! URI must include hostname, domain name, and tld
+undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! URI must include hostname, domain name, and tld
+undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+undefined [[31merror[39m]  : uncaughtException Err:: app.listen is not a function
+undefined [[31merror[39m]  : TypeError: app.listen is not a function
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
+undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
+undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
+undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
+undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-12T16:45:18.257Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-12T16:45:18.260Z [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
+2023-09-12T16:45:18.260Z [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-12T17:38:08.637Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-12T17:38:08.638Z [[31merror[39m]  : uncaughtException Err:: app.listen is not a function
+2023-09-12T17:38:08.639Z [[31merror[39m]  : TypeError: app.listen is not a function
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
