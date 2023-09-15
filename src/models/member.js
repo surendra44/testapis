@@ -1,8 +1,8 @@
 var mongoose = require('mongoose')
 
 var memberSchema = new mongoose.Schema({
-    fullName: { type: String, required: true },
-    phone: {
+    memberName: { type: String, required: true },
+    phoneNum: {
         type: String, unique: true, validate: {
             validator: function (v) {
                 return /^\d{10}$/.test(v); // regex to match 10 digit mobile number
@@ -11,10 +11,15 @@ var memberSchema = new mongoose.Schema({
         },
         required: [true, 'Mobile number is required']
     },
-    email: { type: String, unique: true },
-    address: {type: String},
-    designation: {type: String},
-    gender:{type: String},
+    email: { type: String },
+    address: { type: String },
+    designation: { type: String },
+    uniqueId: { type: Number },
+    fatherName: { type: String },
+    aadharNum: { type: Number },
+    validity: { type: String },
+    photoUrl: { type: String },
+    gender: { type: String },
     remarks: { type: String },
 })
 

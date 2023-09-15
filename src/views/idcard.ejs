@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ID Card</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -25,14 +25,14 @@
                     src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/62/cd/f5/62cdf5b2-a731-76ca-aa69-fe82c8a09d94/source/512x512bb.jpg">
             </div>
             <h2>
-                महा मडलेश्वर अभयानंद सरस्वती
+                <%= memberName%>
             </h2>
             <h3>
-                Member
+                <%= designation %>
             </h3>
             <div class="footer">
                 <h3>
-                    uniqueid - 23423
+                    Unique Id - <%= uniqueId %>
                 </h3>
             </div>
             <!-- <div class="footer">
@@ -50,11 +50,11 @@
                 <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/62/cd/f5/62cdf5b2-a731-76ca-aa69-fe82c8a09d94/source/512x512bb.jpg" alt="logo">
             </div> -->
             <div class="details">
-                <p>पुत्र - </p>
-                <p>पता - </p>
-                <p>आधार नं- </p>
-                <p>फ़ोन नं- </p>
-                <p>वैधता- </p>
+                <p>पुत्र - <strong><%= fatherName %></strong></p>
+                <p>पता - <strong><%= address %></strong></p>
+                <p>आधार नं- <strong><%= aadharNum %></strong></p>
+                <p>फ़ोन नं- <strong><%= phoneNum %></strong></p>
+                <p>वैधता- <strong><%= validity %></strong></p>
             </div>
             <div class="instruction">
                 <h3>अनुदेश:-</h3>

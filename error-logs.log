@@ -333,3 +333,24 @@ Require stack:
     at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
     at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
     at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
+2023-09-15T11:19:57.913Z [[31merror[39m]  : An error occurred: data is not defined
+2023-09-15T11:19:57.918Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-15T11:19:57.919Z [[31merror[39m]  : uncaughtException Err:: Members validation failed: phoneNum: Mobile number is required, memberName: Path `memberName` is required.
+2023-09-15T11:19:57.919Z [[31merror[39m]  : ValidationError: Members validation failed: phoneNum: Mobile number is required, memberName: Path `memberName` is required.
+    at Document.invalidate (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:3162:32)
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:2955:17
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/schematype.js:1368:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+2023-09-15T12:32:51.185Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-15T12:32:51.187Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
+2023-09-15T12:32:51.188Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
+    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
+    at listenInCluster (node:net:1788:12)
+    at Server.listen (node:net:1876:7)
+    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-15T13:40:47.349Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2023-09-15T13:45:06.451Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2023-09-15T13:49:02.624Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+2023-09-15T13:56:34.044Z [[31merror[39m]  : Unable to connect to the database. Shutting down !! bad auth : authentication failed

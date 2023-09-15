@@ -32,6 +32,7 @@ exports.getMembers = async (req, res) =>{
 
 exports.createMember = async (req, res)=> {
     try {
+        const url = req.protocol + '://' + req.get("host");
         const bodyvar = req.body
         const customerData = new Members({
             fullName: bodyvar.fullName,
@@ -42,14 +43,17 @@ exports.createMember = async (req, res)=> {
             gender:bodyvar.gender,
             remarks:bodyvar.remarks,
         })
+        if (req.files && req.files.length != 0 && req.files[0].fieldname == 'photoUrl') {
+            customerData.photoUrl = url + '/' + req.files[0].filename
+        }
         let message = "member signup success"
-        console.log(msg,'msg')
-        customerData.save().then(data =>
-            res.status(200).send({data, message })
-        )
+        let saved = customerData.save()
+        if(saved){
+            res.status(200).send({saved,message })
+        }
     }
     catch (error) {
-        res.send(error);
+        res.status(400).send(error);
         logger.error(`An error occurred: ${error.message}`)
     }
 }
@@ -80,14 +84,19 @@ exports.editMember = async (req, res)=> {
 
 exports.loadIdCard = async (req,res)=>{
     try{
+        let mid = req.params.id
+        let member = await Members.findById({_id:mid})
         const data = {
-            title:"Pryas Foundation",
-            name: 'John Doe',
-            designation:"Member",
-            uniqueid: '1231',
-            email:'jhonedoe@gmail.com',
-            phone:'7788778877',
-            photoUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Republic_Of_Korea_Broadcasting-TV_Rating_System%28ALL%29.svg/1200px-Republic_Of_Korea_Broadcasting-TV_Rating_System%28ALL%29.svg.png"
+            memberName: member.memberName,
+            designation: member.designation,
+            uniqueId: member.uniqueId,
+            email: member.email,
+            phoneNum: member.phoneNum,
+            fatherName: member.fatherName,
+            address: member.address,
+            aadharNum: member.aadharNum,
+            validity: member.validity,
+            photoUrl:member.photoUrl
         };
         res.render('idcard', data);
     }catch(error){
@@ -120,12 +129,12 @@ try {
     await page.setViewport({width:1680, height: 1050})
     dateToday = new Date()
     const pdfs = await page.pdf({
-        path: `${path.join(__dirname, '../public' ,dateToday.getTime()+".pdf")}`,
+        path: `${path.join(__dirname, '../public/idcards' ,dateToday.getTime()+".pdf")}`,
         printBackground: true,
         format: "A4"
     })
     await browser.close()
-    const pdfUrl = path.join(__dirname, '../public' ,dateToday.getTime()+".pdf")
+    const pdfUrl = path.join(__dirname, '../public/idcards' ,dateToday.getTime()+".pdf")
     res.set({
         "Content-Type":"application/pdf",
         "Content-Length":pdfs.length

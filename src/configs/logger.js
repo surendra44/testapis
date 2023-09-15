@@ -8,7 +8,7 @@ const enumerateErrorFormat = winston.format((info) => {
 });
 
 const logger = winston.createLogger({
-  level: "info",
+  level: "error",
   format: winston.format.combine(
     enumerateErrorFormat(),
     winston.format.colorize(),
