@@ -1,0 +1,221 @@
+body {
+    background-color: transparent;
+    font-family: 'Noto Sans Devanagari', 'verdana';
+
+}
+
+@font-face {
+    font-family: 'Arya Regular';
+    src: url('../fonts/Arya-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+.id-card-holder {
+    width: 325px;
+    padding: 4px;
+    margin: 0 auto;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    position: relative;
+}
+
+.id-card-holder:after {
+    content: '';
+    width: 7px;
+    display: block;
+    background-color: #0a0a0a;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    border-radius: 0 5px 5px 0;
+}
+
+.id-card-holder:before {
+    content: '';
+    width: 7px;
+    display: block;
+    background-color: #0a0a0a;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    left: 322px;
+    border-radius: 5px 0 0 5px;
+}
+
+.id-card {
+    height: 500px;
+    display: flex;
+    flex-flow: column;
+    background-color: #ffffff;
+    padding: 0px;
+    padding-top: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 1.5px 0px #b9b9b9;
+}
+
+.id-card img {
+    /* background-color: #fac381; */
+    margin: 0 auto;
+}
+
+.header {
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+.header img {
+    width: 100px;
+    margin-top: 15px;
+}
+
+.header h1 {
+    width: 100%;
+    font-family: 'Arya Regular';
+}
+
+.photo {
+    background-color: orange;
+    border: 5px;
+}
+
+.photo img {
+    width: 100px;
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 5px 0;
+    color: #a11a00;
+}
+
+h2 {
+    font-size: 25px;
+    margin: 5px 0;
+    color: #a11a00;
+    font-family: arya;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 2.5px 0;
+    font-weight: 300;
+}
+
+.qr-code img {
+    width: 50px;
+}
+
+p {
+    font-size: 13px;
+    margin: 0px;
+}
+
+.id-card-hook {
+    background-color: black;
+    width: 70px;
+    margin: 0 auto;
+    height: 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+.id-card-hook:after {
+    content: '';
+    background-color: white;
+    width: 47px;
+    height: 6px;
+    display: block;
+    margin: 0px auto;
+    position: relative;
+    top: 6px;
+    border-radius: 4px;
+}
+
+.id-card-tag-strip {
+    width: 45px;
+    height: 40px;
+    background-color: #d9300f;
+    margin: 0 auto;
+    border-radius: 5px;
+    position: relative;
+    top: 9px;
+    z-index: 1;
+    border: 1px solid #a11a00;
+}
+
+.id-card-tag-strip:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #a11a00;
+    position: relative;
+    top: 10px;
+}
+
+.id-card-tag {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 100px solid #d9300f;
+    margin: -10px auto -30px auto;
+
+}
+
+.id-card-tag:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid white;
+    margin: -10px auto -30px auto;
+    position: relative;
+    top: -130px;
+    left: -50px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    background-color: orange;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.details {
+    text-align: left;
+    padding-left: 5px;
+    margin: 5px;
+}
+
+.details p {
+    line-height: 1.10;
+    font-size: 15px;
+    font-family: arya;
+    padding: 0px;
+    color: orange;
+
+}
+
+.instruction {
+    margin: 10px;
+}
+
+.instruction h3 {
+    font-family: arya;
+    font-size: 20px;
+    text-align: center;
+}
+
+.instruction,
+p {
+    font-family: arya;
+    font-size: 15px;
+    text-align: left;
+}
