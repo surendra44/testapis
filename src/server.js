@@ -7,6 +7,7 @@ const logger = require("./configs/logger")
 let server;
 dbConnect.then(
   () => {
+    console.log('database connected')
     const appPort = process.env.Port || 5004;
     server = app.listen(appPort, () => {
       logger.info(`App running on port ${appPort}...`);

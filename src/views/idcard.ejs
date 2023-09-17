@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <div class="id-card-tag"></div>
-    <div class="id-card-tag-strip"></div>
-    <div class="id-card-hook"></div>
+    <div class="container">
     <div class="id-card-holder">
         <div class="id-card">
             <div class="header">
@@ -21,8 +19,7 @@
                 </h1>
             </div>
             <div class="photo">
-                <img
-                    src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/62/cd/f5/62cdf5b2-a731-76ca-aa69-fe82c8a09d94/source/512x512bb.jpg">
+                <img src="<%= photoUrl %>">
             </div>
             <h2>
                 <%= memberName%>
@@ -43,12 +40,9 @@
             </div> -->
         </div>
     </div>
-    <br>
+    
     <div class="id-card-holder">
         <div class="id-card">
-            <!-- <div class="header">
-                <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/62/cd/f5/62cdf5b2-a731-76ca-aa69-fe82c8a09d94/source/512x512bb.jpg" alt="logo">
-            </div> -->
             <div class="details">
                 <p>पुत्र - <strong><%= fatherName %></strong></p>
                 <p>पता - <strong><%= address %></strong></p>
@@ -61,7 +55,8 @@
                 <p>- इस कार्ड का उपयोग अवैध और हिंदू विरोधी गतिविधियों में नहीं किया जा सकता है |</p>
                 <p>- आपका पदनाम अगले आदेश तक ही वैध रहेगा</p>
                 <p>- संगठन विरोधी गतिविधियों में लिप्त पाए जाने पर आपको बर्खास्त किया जा सकता है</p>
-                <p>- संगठन विरोधी गतिविधियों में लिप्त पाए जाने पर आपको बर्खास्त किया जा सकता है</p>
+                <p>- यह प्रयास फाउंडेशन का आईडी कार्ड है। इसका उपयोग सरकारी दस्तावेज़ों में नहीं किया जा सकता</p>
+                <h2>प्रयास जन कल्याण फाउंडेशन</h2>
             </div>
             <div >
                 <h2>
@@ -76,6 +71,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 
 </html>

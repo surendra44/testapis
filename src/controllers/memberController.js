@@ -3,12 +3,13 @@ let Admins = require('../models/admin')
 const logger = require('../configs/logger')
 const puppeteer = require('puppeteer')
 const path = require('path')
+const { v4: uuidv4 } = require('uuid');
+let Math = require('math')
 
-
-exports.getAdmins = async (req, res) =>{
+exports.getAdmins = async (req, res) => {
     const id = req.query.id
     try {
-        var admin = await Admins.findOne({_id:id})
+        var admin = await Admins.findOne({ _id: id })
         // console.log(admin, " fetch admin");
         res.status(200).send(admin);
     }
@@ -18,7 +19,7 @@ exports.getAdmins = async (req, res) =>{
     }
 }
 
-exports.getMembers = async (req, res) =>{
+exports.getMembers = async (req, res) => {
     const id = req.query.id
     try {
         var memberData = await Members.find()
@@ -30,26 +31,31 @@ exports.getMembers = async (req, res) =>{
     }
 }
 
-exports.createMember = async (req, res)=> {
+exports.createMember = async (req, res) => {
     try {
         const url = req.protocol + '://' + req.get("host");
         const bodyvar = req.body
-        const customerData = new Members({
-            fullName: bodyvar.fullName,
-            phone: bodyvar.phone,
-            email:bodyvar.email,
+        console.log(bodyvar, 'body')
+        const memberData = new Members({
+            memberName: bodyvar.memberName,
+            fatherName: bodyvar.fatherName,
+            aadharNum: bodyvar.aadharNum,
+            uniqueId: uuidv4(),
+            phoneNum: bodyvar.phoneNum,
+            email: bodyvar.email,
             address: bodyvar.address,
-            designation:bodyvar.designation,
-            gender:bodyvar.gender,
-            remarks:bodyvar.remarks,
+            designation: bodyvar.designation,
+            validity: bodyvar.validity,
+            gender: bodyvar.gender,
+            remarks: bodyvar.remarks,
         })
         if (req.files && req.files.length != 0 && req.files[0].fieldname == 'photoUrl') {
-            customerData.photoUrl = url + '/' + req.files[0].filename
+            memberData.photoUrl = url + '/' + req.files[0].filename
         }
-        let message = "member signup success"
-        let saved = customerData.save()
+        let saved = await memberData.save()
         if(saved){
-            res.status(200).send({saved,message })
+            let message = "member signup success"
+            res.status(200).send({ saved, message })
         }
     }
     catch (error) {
@@ -58,23 +64,23 @@ exports.createMember = async (req, res)=> {
     }
 }
 
-exports.editMember = async (req, res)=> {
+exports.editMember = async (req, res) => {
     try {
         const bodyvar = req.body
-        console.log(bodyvar,'bodyreq')
+        console.log(bodyvar, 'bodyreq')
         const id = req.params.id
         const memberUpdate = {
-            fullName: bodyvar.fullName,
+            memberName: bodyvar.memberName,
             phone: bodyvar.phone,
-            email:bodyvar.email,
+            email: bodyvar.email,
             address: bodyvar.address,
-            designation:bodyvar.designation,
-            gender:bodyvar.gender,
-            remarks:bodyvar.remarks,
+            designation: bodyvar.designation,
+            gender: bodyvar.gender,
+            remarks: bodyvar.remarks,
         }
-        let updated = await Members.findByIdAndUpdate({_id:id},memberUpdate,{new:true})
+        let updated = await Members.findByIdAndUpdate({ _id: id }, memberUpdate, { new: true })
         let message = "member update success"
-        res.send({updated,message})
+        res.send({ updated, message })
     }
     catch (error) {
         res.send(error);
@@ -82,10 +88,10 @@ exports.editMember = async (req, res)=> {
     }
 }
 
-exports.loadIdCard = async (req,res)=>{
-    try{
+exports.loadIdCard = async (req, res) => {
+    try {
         let mid = req.params.id
-        let member = await Members.findById({_id:mid})
+        let member = await Members.findById({_id: mid })
         const data = {
             memberName: member.memberName,
             designation: member.designation,
@@ -96,53 +102,55 @@ exports.loadIdCard = async (req,res)=>{
             address: member.address,
             aadharNum: member.aadharNum,
             validity: member.validity,
-            photoUrl:member.photoUrl
+            photoUrl: member.photoUrl
         };
         res.render('idcard', data);
-    }catch(error){
-        logger.error(`An error occurred: ${error.message}`)    }
+    } catch (error) {
+        logger.error(`An error occurred: ${error.message}`)
+    }
 }
 
-exports.generateIdCard = async (req,res)=>{
-try {
-    const browser = await puppeteer.launch({headless:"new"})
-    const page = await browser.newPage()
-    await page.goto(`${req.protocol}://${req.get('host')}`+"/members/loadIdCard" ,{
-        waitUntil:'networkidle2'
-    })
-    await page.evaluate(() => {
-        const images = document.querySelectorAll('img');
-        const imagePromises = [];
-        
-        images.forEach((img) => {
-            if (!img.complete) {
-                const imageLoaded = new Promise((resolve) => {
-                    img.addEventListener('load', resolve);
-                    img.addEventListener('error', resolve);
-                });
-                imagePromises.push(imageLoaded);
-            }
+exports.generateIdCard = async (req, res) => {
+    try {
+        let mid = req.params.id
+        const browser = await puppeteer.launch({ headless: "new" })
+        const page = await browser.newPage()
+        await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
+            waitUntil: 'networkidle2'
+        })
+        await page.evaluate(() => {
+            const images = document.querySelectorAll('img');
+            const imagePromises = [];
+
+            images.forEach((img) => {
+                if (!img.complete) {
+                    const imageLoaded = new Promise((resolve) => {
+                        img.addEventListener('load', resolve);
+                        img.addEventListener('error', resolve);
+                    });
+                    imagePromises.push(imageLoaded);
+                }
+            });
+
+            return Promise.all(imagePromises);
         });
-    
-        return Promise.all(imagePromises);
-    });
-    await page.setViewport({width:1680, height: 1050})
-    dateToday = new Date()
-    const pdfs = await page.pdf({
-        path: `${path.join(__dirname, '../public/idcards' ,dateToday.getTime()+".pdf")}`,
-        printBackground: true,
-        format: "A4"
-    })
-    await browser.close()
-    const pdfUrl = path.join(__dirname, '../public/idcards' ,dateToday.getTime()+".pdf")
-    res.set({
-        "Content-Type":"application/pdf",
-        "Content-Length":pdfs.length
-    })
-    res.sendFile(pdfUrl)
+        await page.setViewport({ width: 1680, height: 1050 })
+        dateToday = new Date()
+        const pdfs = await page.pdf({
+            path: `${path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")}`,
+            printBackground: true,
+            format: "A4"
+        })
+        await browser.close()
+        const pdfUrl = path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Length": pdfs.length
+        })
+        res.sendFile(pdfUrl)
 
-} catch (error) {
-    logger.error(`An error occurred: ${error.message}`)
+    } catch (error) {
+        logger.error(`An error occurred: ${error.message}`)
 
-}
+    }
 }

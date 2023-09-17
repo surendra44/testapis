@@ -9,11 +9,13 @@
   "author": "surendra",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "http-status": "^1.7.0",
     "logger": "^0.0.1",
+    "math": "^0.0.3",
     "mongoose": "^7.5.1",
     "multer": "^1.4.5-lts.1",
     "puppeteer": "^21.2.0",

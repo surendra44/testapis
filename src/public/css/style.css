@@ -15,29 +15,7 @@ body {
     border-radius: 5px;
     position: relative;
     overflow:hidden;
-}
-
-.id-card-holder:after {
-    content: '';
-    width: 7px;
-    display: block;
-    background-color: #0a0a0a;
-    height: 100px;
-    position: absolute;
-    top: 200px;
-    border-radius: 0 5px 5px 0;
-}
-
-.id-card-holder:before {
-    content: '';
-    width: 7px;
-    display: block;
-    background-color: #0a0a0a;
-    height: 100px;
-    position: absolute;
-    top: 200px;
-    left: 322px;
-    border-radius: 5px 0 0 5px;
+    z-index:2
 }
 
 .id-card {
@@ -73,13 +51,15 @@ body {
 }
 
 .photo {
-    background-color: orange;
+    background-color: #ed752f;
     border: 5px;
+    min-height:150px;
 }
 
 .photo img {
-    width: 100px;
-    margin-top: 15px;
+    width: 170px;
+    margin: 5px;
+    border-radius:50%;
 }
 
 h1 {
@@ -179,11 +159,12 @@ p {
 .footer {
     position:absolute;
     bottom:0px;
-    background-color: orange;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    background-color: #ed752f;
+    padding: 5px 10px;
     width:100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin: 0px 3px 3px 0px;
+    
 }
 
 .details {
@@ -198,7 +179,7 @@ p {
     font-size:15px;
     font-family: 'Arya Regular';
     padding: 0px;
-    color: orange;
+    color: #a11a00;
 
 }
 .details p strong {
@@ -214,9 +195,19 @@ p {
     font-family:'Arya Regular';
     font-size:20px;
     text-align:center;
+    color: #a11a00;
+}
+.instruction h2{
+    font-family:'Arya Regular';
+    text-align:center;
+    color: #a11a00;
 }
 .instruction, p{
     font-family: 'Arya Regular';
     font-size:15px;
     text-align:left;
+}
+.container{
+    display:flex;
+    flex-flow:row ;
 }

@@ -1,356 +1,51 @@
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! URI must include hostname, domain name, and tld
-undefined [[31merror[39m]  : Unable to connect to the database. Shutting down !! URI must include hostname, domain name, and tld
-undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-undefined [[31merror[39m]  : uncaughtException Err:: app.listen is not a function
-undefined [[31merror[39m]  : TypeError: app.listen is not a function
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+2023-09-16T16:31:27.751Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-16T16:31:27.754Z [[31merror[39m]  : uncaughtException Err:: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+2023-09-16T16:31:27.754Z [[31merror[39m]  : MongoServerError: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/insert.js:50:33
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/command.js:84:64
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
-undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+2023-09-16T16:37:53.285Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-16T16:37:53.285Z [[31merror[39m]  : uncaughtException Err:: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+2023-09-16T16:37:53.286Z [[31merror[39m]  : MongoServerError: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/insert.js:50:33
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/command.js:84:64
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
-undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+2023-09-16T17:12:10.879Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-16T17:12:10.881Z [[31merror[39m]  : uncaughtException Err:: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+2023-09-16T17:12:10.882Z [[31merror[39m]  : MongoServerError: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: 0 }
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/insert.js:50:33
+    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongodb/lib/operations/command.js:84:64
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
-undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-undefined [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-undefined [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
-undefined [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-12T16:45:18.257Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-12T16:45:18.260Z [[31merror[39m]  : uncaughtException Err:: Cannot read properties of undefined (reading 'listen')
-2023-09-12T16:45:18.260Z [[31merror[39m]  : TypeError: Cannot read properties of undefined (reading 'listen')
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-12T17:38:08.637Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-12T17:38:08.638Z [[31merror[39m]  : uncaughtException Err:: app.listen is not a function
-2023-09-12T17:38:08.639Z [[31merror[39m]  : TypeError: app.listen is not a function
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T03:57:50.006Z [[31merror[39m]  : An error occurred: Cannot find module 'ejs'
-Require stack:
-- /home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/view.js
-- /home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js
-- /home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/express.js
-- /home/rad/Documents/new folder1/aprojectnode/node_modules/express/index.js
-- /home/rad/Documents/new folder1/aprojectnode/src/index.js
-- /home/rad/Documents/new folder1/aprojectnode/src/server.js
-2023-09-13T09:25:25.139Z [[31merror[39m]  : An error occurred: A4 is not defined
-2023-09-13T09:26:51.058Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T09:26:51.061Z [[31merror[39m]  : Protocol error (Page.printToPDF): Printing failed
-2023-09-13T09:26:51.062Z [[31merror[39m]  : ProtocolError: Protocol error (Page.printToPDF): Printing failed
-    at <instance_members_initializer> (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:49:14)
-    at new Callback (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:53:16)
-    at CallbackRegistry.create (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:93:26)
-    at Connection._rawSend (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:215:26)
-    at CDPSessionImpl.send (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:465:33)
-    at CDPPage.createPDFStream (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:870:50)
-    at CDPPage.pdf (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:896:37)
-    at exports.generateIdCard (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:103:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T09:26:51.863Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T09:26:51.864Z [[31merror[39m]  : Protocol error (Page.printToPDF): Printing failed
-2023-09-13T09:26:51.866Z [[31merror[39m]  : ProtocolError: Protocol error (Page.printToPDF): Printing failed
-    at <instance_members_initializer> (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:49:14)
-    at new Callback (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:53:16)
-    at CallbackRegistry.create (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:93:26)
-    at Connection._rawSend (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:215:26)
-    at CDPSessionImpl.send (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:465:33)
-    at CDPPage.createPDFStream (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:870:50)
-    at CDPPage.pdf (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:896:37)
-    at exports.generateIdCard (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:103:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T09:28:12.385Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T09:28:12.388Z [[31merror[39m]  : Protocol error (Page.printToPDF): Printing failed
-2023-09-13T09:28:12.388Z [[31merror[39m]  : ProtocolError: Protocol error (Page.printToPDF): Printing failed
-    at <instance_members_initializer> (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:49:14)
-    at new Callback (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:53:16)
-    at CallbackRegistry.create (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:93:26)
-    at Connection._rawSend (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:215:26)
-    at CDPSessionImpl.send (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:465:33)
-    at CDPPage.createPDFStream (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:870:50)
-    at CDPPage.pdf (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:896:37)
-    at exports.generateIdCard (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:103:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T09:33:55.567Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T09:33:55.571Z [[31merror[39m]  : Protocol error (Page.printToPDF): Printing failed
-2023-09-13T09:33:55.572Z [[31merror[39m]  : ProtocolError: Protocol error (Page.printToPDF): Printing failed
-    at <instance_members_initializer> (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:49:14)
-    at new Callback (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:53:16)
-    at CallbackRegistry.create (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:93:26)
-    at Connection._rawSend (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:215:26)
-    at CDPSessionImpl.send (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Connection.js:465:33)
-    at CDPPage.createPDFStream (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:870:50)
-    at CDPPage.pdf (/home/rad/Documents/new folder1/aprojectnode/node_modules/puppeteer-core/lib/cjs/puppeteer/common/Page.js:896:37)
-    at exports.generateIdCard (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:103:24)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:04:09.022Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:04:09.025Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:04:09.025Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:05:26.278Z [[31merror[39m]  : An error occurred: host is not defined
-2023-09-13T10:06:01.853Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:06:01.856Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:06:01.857Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:26:32.545Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:26:32.548Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:26:32.549Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:28:48.957Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:28:48.960Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:28:48.960Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:39:23.967Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:39:23.969Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:39:23.970Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:42:53.536Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:42:53.538Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:42:53.539Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T10:58:14.056Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T10:58:14.058Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T10:58:14.059Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T11:03:40.817Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T11:03:40.820Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T11:03:40.820Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T11:05:50.287Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T11:05:50.291Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T11:05:50.291Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-13T17:06:02.602Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-13T17:06:02.604Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-13T17:06:02.604Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-14T06:09:14.923Z [[31merror[39m]  : An error occurred: page.addFont is not a function
-2023-09-14T06:11:00.291Z [[31merror[39m]  : An error occurred: page.addFont is not a function
-2023-09-15T04:44:28.073Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.075Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.075Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:79:23)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.075Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.076Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.076Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.076Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.077Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.077Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.077Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.077Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.077Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.078Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.078Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.078Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.080Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.080Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.080Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.080Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.080Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.081Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.081Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.081Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.081Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.081Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.081Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.081Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.081Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.082Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.082Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T04:44:28.082Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T04:44:28.082Z [[31merror[39m]  : uncaughtException Err:: write EIO
-2023-09-15T04:44:28.082Z [[31merror[39m]  : Error: write EIO
-    at afterWriteDispatched (node:internal/stream_base_commons:160:15)
-    at writeGeneric (node:internal/stream_base_commons:151:3)
-    at Socket._writeGeneric (node:net:930:11)
-    at Socket._write (node:net:942:8)
-    at writeOrBuffer (node:internal/streams/writable:392:12)
-    at _write (node:internal/streams/writable:333:10)
-    at Writable.write (node:internal/streams/writable:337:10)
-    at Console.log (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston/lib/winston/transports/console.js:51:25)
-    at Console._write (/home/rad/Documents/new folder1/aprojectnode/node_modules/winston-transport/index.js:82:19)
-    at doWrite (/home/rad/Documents/new folder1/aprojectnode/node_modules/readable-stream/lib/_stream_writable.js:390:139)
-2023-09-15T11:19:57.913Z [[31merror[39m]  : An error occurred: data is not defined
-2023-09-15T11:19:57.918Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T11:19:57.919Z [[31merror[39m]  : uncaughtException Err:: Members validation failed: phoneNum: Mobile number is required, memberName: Path `memberName` is required.
-2023-09-15T11:19:57.919Z [[31merror[39m]  : ValidationError: Members validation failed: phoneNum: Mobile number is required, memberName: Path `memberName` is required.
+2023-09-16T17:13:38.378Z [[31merror[39m]  : Unable to connect to the database. Shutting down !! queryTxt ESERVFAIL cluster0.6r0b8yu.mongodb.net
+2023-09-16T17:14:37.046Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-16T17:14:37.048Z [[31merror[39m]  : uncaughtException Err:: Members validation failed: uniqueId: Cast to Number failed for value "09f66cdf-4e15-419c-bf10-a9515f54b910" (type string) at path "uniqueId", memberName: Path `memberName` is required., phoneNum: Mobile number is required
+2023-09-16T17:14:37.049Z [[31merror[39m]  : ValidationError: Members validation failed: uniqueId: Cast to Number failed for value "09f66cdf-4e15-419c-bf10-a9515f54b910" (type string) at path "uniqueId", memberName: Path `memberName` is required., phoneNum: Mobile number is required
     at Document.invalidate (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:3162:32)
-    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:2955:17
-    at /home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/schematype.js:1368:9
-    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
-2023-09-15T12:32:51.185Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
-2023-09-15T12:32:51.187Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
-2023-09-15T12:32:51.188Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
-    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
-    at listenInCluster (node:net:1788:12)
-    at Server.listen (node:net:1876:7)
-    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
-    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:11:18
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2023-09-15T13:40:47.349Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
-2023-09-15T13:45:06.451Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
-2023-09-15T13:49:02.624Z [[31merror[39m]  : Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
-2023-09-15T13:56:34.044Z [[31merror[39m]  : Unable to connect to the database. Shutting down !! bad auth : authentication failed
+    at model.$set (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:1453:12)
+    at model.$set (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:1113:16)
+    at model.Document (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:164:12)
+    at model.Model (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/model.js:123:12)
+    at new model (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/model.js:4702:15)
+    at exports.createMember (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:39:28)
+    at Layer.handle [as handle_request] (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/router/route.js:144:13)
+    at done (/home/rad/Documents/new folder1/aprojectnode/node_modules/multer/lib/make-middleware.js:45:7)
+2023-09-16T17:15:36.512Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-16T17:15:36.516Z [[31merror[39m]  : uncaughtException Err:: Members validation failed: uniqueId: Cast to Number failed for value "770d6672-e6af-44cc-81e1-c1e9074eca5e" (type string) at path "uniqueId"
+2023-09-16T17:15:36.516Z [[31merror[39m]  : ValidationError: Members validation failed: uniqueId: Cast to Number failed for value "770d6672-e6af-44cc-81e1-c1e9074eca5e" (type string) at path "uniqueId"
+    at Document.invalidate (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:3162:32)
+    at model.$set (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:1453:12)
+    at model.$set (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:1113:16)
+    at model.Document (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/document.js:164:12)
+    at model.Model (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/model.js:123:12)
+    at new model (/home/rad/Documents/new folder1/aprojectnode/node_modules/mongoose/lib/model.js:4702:15)
+    at exports.createMember (/home/rad/Documents/new folder1/aprojectnode/src/controllers/memberController.js:39:28)
+    at Layer.handle [as handle_request] (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/router/route.js:144:13)
+    at done (/home/rad/Documents/new folder1/aprojectnode/node_modules/multer/lib/make-middleware.js:45:7)
+2023-09-16T17:19:57.404Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ _id: 'undefined' }" (type Object) at path "_id" for model "Members"
+2023-09-16T17:22:36.382Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ uniqueId: 'undefined' }" (type Object) at path "_id" for model "Members"
+2023-09-16T17:22:46.143Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ uniqueId: 'undefined' }" (type Object) at path "_id" for model "Members"
+2023-09-16T17:24:36.141Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ uniqueId: 'undefined' }" (type Object) at path "_id" for model "Members"
+2023-09-16T17:27:32.883Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ _id: 'undefined' }" (type Object) at path "_id" for model "Members"
+2023-09-16T17:34:05.424Z [[31merror[39m]  : An error occurred: Members validation failed: phoneNum: 889988998877 is not a valid mobile number!
