@@ -35,12 +35,14 @@ exports.createMember = async (req, res) => {
     try {
         const url = req.protocol + '://' + req.get("host");
         const bodyvar = req.body
+        const timestamp = new Date().getTime(); // Get current timestamp in milliseconds
+        let unid =timestamp.toString().slice(-8);
         console.log(bodyvar, 'body')
         const memberData = new Members({
             memberName: bodyvar.memberName,
             fatherName: bodyvar.fatherName,
             aadharNum: bodyvar.aadharNum,
-            uniqueId: uuidv4(),
+            uniqueId: unid,
             phoneNum: bodyvar.phoneNum,
             email: bodyvar.email,
             address: bodyvar.address,
@@ -53,7 +55,7 @@ exports.createMember = async (req, res) => {
             memberData.photoUrl = url + '/' + req.files[0].filename
         }
         let saved = await memberData.save()
-        if(saved){
+        if (saved) {
             let message = "member signup success"
             res.status(200).send({ saved, message })
         }
@@ -91,18 +93,18 @@ exports.editMember = async (req, res) => {
 exports.loadIdCard = async (req, res) => {
     try {
         let mid = req.params.id
-        let member = await Members.findById({_id: mid })
+        let member = await Members.find({ uniqueId: mid })
         const data = {
-            memberName: member.memberName,
-            designation: member.designation,
-            uniqueId: member.uniqueId,
-            email: member.email,
-            phoneNum: member.phoneNum,
-            fatherName: member.fatherName,
-            address: member.address,
-            aadharNum: member.aadharNum,
-            validity: member.validity,
-            photoUrl: member.photoUrl
+            memberName: member[0].memberName,
+            designation: member[0].designation,
+            uniqueId: member[0].uniqueId,
+            email: member[0].email,
+            phoneNum: member[0].phoneNum,
+            fatherName: member[0].fatherName,
+            address: member[0].address,
+            aadharNum: member[0].aadharNum,
+            validity: member[0].validity,
+            photoUrl: member[0].photoUrl
         };
         res.render('idcard', data);
     } catch (error) {

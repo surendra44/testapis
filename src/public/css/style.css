@@ -1,10 +1,10 @@
-body {
+        body {
     background-color: transparent;
     font-family: 'verdana';
 }
 @font-face {
     font-family: 'Arya Regular';
-    src: url('../fonts/Arya-Regular.ttf') format('truetype');
+    src: url('./Arya-Regular.ttf') format('truetype');
     font-display: swap;
 }
 .id-card-holder {
@@ -24,7 +24,7 @@ body {
     flex-flow:column;
     background-color: #ffffff;
     padding: 0px;
-    padding-top: 15px;
+    padding-top: 10px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 1.5px 0px #b9b9b9;
@@ -38,22 +38,32 @@ body {
 .header {
     margin: 5px;
     margin-bottom: 10px;
+    display:flex;
+    flex-flow:row wrap;
 }
 
 .header img {
-    width: 100px;
-    margin-top: 15px;
+    width: 75px;
+    /* margin-top: 15px; */
 }
 
 .header h1 {
-    width: 100%;
+    width: 240px;
     font-family: 'Arya Regular';
+    margin:-10px;
+}
+.header h3 {
+    width: 240px;
+    color: #a11a00;
+    font-family: 'Arya Regular';
+    font-weight:600;
 }
 
+
 .photo {
-    background-color: #ed752f;
+    background-color:#f7d0ad;
     border: 5px;
-    min-height:150px;
+    min-height:130px;
 }
 
 .photo img {
@@ -159,11 +169,12 @@ p {
 .footer {
     position:absolute;
     bottom:0px;
-    background-color: #ed752f;
+    background-color:#f7d0ad;
     padding: 5px 10px;
     width:100%;
     /* margin: 0 auto; */
     margin: 0px 3px 3px 0px;
+    font-family :'verdana',
     
 }
 

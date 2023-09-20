@@ -49,3 +49,34 @@
 2023-09-16T17:24:36.141Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ uniqueId: 'undefined' }" (type Object) at path "_id" for model "Members"
 2023-09-16T17:27:32.883Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ _id: 'undefined' }" (type Object) at path "_id" for model "Members"
 2023-09-16T17:34:05.424Z [[31merror[39m]  : An error occurred: Members validation failed: phoneNum: 889988998877 is not a valid mobile number!
+2023-09-17T06:41:02.591Z [[31merror[39m]  : An error occurred: E11000 duplicate key error collection: test.members index: uniqueId_1 dup key: { uniqueId: "331021" }
+2023-09-17T06:43:37.723Z [[31merror[39m]  : An error occurred: uuid4 is not a function
+2023-09-17T06:48:45.705Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-17T06:48:45.710Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
+2023-09-17T06:48:45.711Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
+    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
+    at listenInCluster (node:net:1788:12)
+    at Server.listen (node:net:1876:7)
+    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-17T06:49:41.144Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-17T06:49:41.148Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
+2023-09-17T06:49:41.149Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
+    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
+    at listenInCluster (node:net:1788:12)
+    at Server.listen (node:net:1876:7)
+    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-17T06:50:46.940Z [[31merror[39m]  : UNCAUGHT EXCEPTION! 💥 Shutting down...
+2023-09-17T06:50:46.943Z [[31merror[39m]  : uncaughtException Err:: listen EADDRINUSE: address already in use :::5004
+2023-09-17T06:50:46.944Z [[31merror[39m]  : Error: listen EADDRINUSE: address already in use :::5004
+    at Server.setupListenHandle [as _listen2] (node:net:1740:16)
+    at listenInCluster (node:net:1788:12)
+    at Server.listen (node:net:1876:7)
+    at Function.listen (/home/rad/Documents/new folder1/aprojectnode/node_modules/express/lib/application.js:635:24)
+    at /home/rad/Documents/new folder1/aprojectnode/src/server.js:12:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2023-09-17T07:38:48.910Z [[31merror[39m]  : An error occurred: Cast to ObjectId failed for value "{ uniqueId: '36328565' }" (type Object) at path "_id" for model "Members"
+2023-09-20T06:15:45.193Z [[31merror[39m]  : An error occurred: Cannot read properties of undefined (reading 'memberName')

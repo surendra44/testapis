@@ -9,12 +9,15 @@ const httpStatus = require("http-status")
 let path = require('path')
 const cors = require('cors')
 
+app.use(cors({
+    origin:'https://prayasjankalyanfoundation.com'
+}));
+app.options("*", cors());
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'uploads')))
-app.use(cors());
-app.options("*", cors());
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
