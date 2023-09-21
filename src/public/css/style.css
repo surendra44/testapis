@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: 'Arya Regular';
-    src: url('./Arya-Regular.ttf') format('truetype');
+    src: url('../fonts/Arya-Regular.ttf') format('truetype');
     font-display: swap;
 }
 .id-card-holder {
@@ -12,7 +12,7 @@
     padding: 4px;
     margin: 0 auto;
     /* background-color: #1f1f1f; */
-    background-image : url('./2.png');
+   
     border-radius: 5px;
     position: relative;
     overflow:hidden;
@@ -23,14 +23,21 @@
     height:500px;
     display:flex;
     flex-flow:column;
-    background-image : url('../public/1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
     padding: 0px;
     padding-top: 10px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 1.5px 0px #b9b9b9;
+}
+.id-bg1{
+    background-image : url('../1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.id-bg2{
+    background-image : url('../2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .id-card img {
@@ -64,9 +71,11 @@
 
 
 .photo {
-    background-color:#f7d0ad;
+    /* background-color:#f7d0ad; */
     border: 5px;
     min-height:130px;
+    margin-top: 180px;
+
 }
 
 .photo img {
@@ -172,12 +181,12 @@ p {
 .footer {
     position:absolute;
     bottom:0px;
-    background-color:#f7d0ad;
+    /* background-color:#f7d0ad7b; */
     padding: 5px 10px;
     width:100%;
     /* margin: 0 auto; */
     margin: 0px 3px 3px 0px;
-    font-family :'verdana',
+    font-family: 'verdana',
     
 }
 
@@ -209,7 +218,7 @@ p {
     font-family:'Arya Regular';
     font-size:20px;
     text-align:center;
-    color: #a11a00;
+    color: black;
 }
 .instruction h2{
     font-family:'Arya Regular';

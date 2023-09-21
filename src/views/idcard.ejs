@@ -11,13 +11,8 @@
 <body>
     <div class="container">
     <div class="id-card-holder">
-        <div class="id-card">
-            <div class="header">
-                <!-- <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/62/cd/f5/62cdf5b2-a731-76ca-aa69-fe82c8a09d94/source/512x512bb.jpg" alt="logo"> -->
-                <h1>
-                    प्रयास जन कल्याण फाउंडेशन
-                </h1>
-            </div>
+        <div class="id-card id-bg1">
+
             <div class="photo">
                 <img src="<%= photoUrl %>">
             </div>
@@ -32,43 +27,53 @@
                     Unique Id - <%= uniqueId %>
                 </h3>
             </div>
-            <!-- <div class="footer">
-                <p><strong>Mahamamdleshar ahayanand Santha</strong> Neemrana, NH-8 Delhi-Jaipur highway
-                <p>
-                <p>District Alwar, Rajasthan <strong>301705</strong></p>
-                <p>Ph: 01494-660600, 7073222393</p>
-            </div> -->
         </div>
     </div>
     
     <div class="id-card-holder">
-        <div class="id-card">
-            <!-- <div class="details">
-                <p>पुत्र - <strong><%= fatherName %></strong></p>
-                <p>पता - <strong><%= address %></strong></p>
-                <p>आधार नं- <strong><%= aadharNum %></strong></p>
-                <p>फ़ोन नं- <strong><%= phoneNum %></strong></p>
-                <p>वैधता- <strong><%= validity %></strong></p>
-            </div>
+        <div class="id-card id-bg2">
+            <table class="details">
+                <tbody>
+                    <tr>
+                        <td>पुत्र/पुत्री/पत्नी - </td>
+                        <td><strong><%= fatherName %></strong> </td>
+                    </tr>
+                    <tr>
+                        <td>पता- </td>
+                        <td><strong><%= address %></strong></td>
+                    </tr>
+                    <tr>
+                        <td>आधार नं - </td>
+                        <td><strong><%= aadharNum %></strong></td>
+                    </tr>
+                    <tr>
+                        <td>वैधता- </td>
+                        <td><strong><%= validity %></strong></td>
+                    </tr>
+                    <!-- <p>पुत्र - <strong><%= fatherName %></strong></p>
+                    <p>पता - <strong><%= address %></strong></p>
+                    <p>आधार नं- <strong><%= aadharNum %></strong></p>
+                    <p>फ़ोन नं- <strong><%= phoneNum %></strong></p>
+                    <p>वैधता- <strong><%= validity %></strong></p> -->
+                </tbody>
+            </table>
             <div class="instruction">
                 <h3>अनुदेश:-</h3>
-                <p>- इस कार्ड का उपयोग अवैध और हिंदू विरोधी गतिविधियों में नहीं किया जा सकता है |</p>
-                <p>- आपका पदनाम अगले आदेश तक ही वैध रहेगा</p>
-                <p>- संगठन विरोधी गतिविधियों में लिप्त पाए जाने पर आपको बर्खास्त किया जा सकता है</p>
+                <!-- <p>- इस कार्ड का उपयोग अवैध और हिंदू विरोधी गतिविधियों में नहीं किया जा सकता है |</p> -->
                 <p>- यह प्रयास फाउंडेशन का आईडी कार्ड है। इसका उपयोग सरकारी दस्तावेज़ों में नहीं किया जा सकता</p>
+                <p>- पत्रक का दुरुपयोग करने पर, अपराधिक कार्यों में लिप्त होने पर, असामाजिक कार्य करने पर, नशे के व्यापार में लिप्त पाये जाने पर, संस्था के विरुद्ध क्रियाकलाप  में पाये जाने पर बिना पूर्व सूचना के सदस्यता समाप्त कर दी जाएगी</p>
                 <h2>प्रयास जन कल्याण फाउंडेशन</h2>
-            </div> -->
-            <!-- <div >
+            </div> 
+             <!-- <div >
                 <h2>
                     प्रयास जन कल्याण फाउंडेशन
                 </h2>
-            </div>
+            </div> -->
             <div class="footer">
-                <p><strong>Prayas jan kalyan foundation</strong> Neemrana, NH-8 Delhi-Jaipur highway
-                <p>
+                <p><strong>प्रयास जन कल्याण फाउंडेशन</strong> Neemrana, NH-8 Delhi-Jaipur highway
                 <p>District Alwar, Rajasthan <strong>301705</strong></p>
                 <p>Ph: 01494-660600, 7073222393</p>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
