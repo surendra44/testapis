@@ -11,7 +11,8 @@
     width: 325px;
     padding: 4px;
     margin: 0 auto;
-    background-color: #1f1f1f;
+    /* background-color: #1f1f1f; */
+    background-image : url('./2.png');
     border-radius: 5px;
     position: relative;
     overflow:hidden;
@@ -22,7 +23,9 @@
     height:500px;
     display:flex;
     flex-flow:column;
-    background-color: #ffffff;
+    background-image : url('../public/1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 0px;
     padding-top: 10px;
     border-radius: 10px;
