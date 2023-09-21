@@ -7,6 +7,8 @@ let MONGODB_URL = process.env.MONGODB_URL
 
 logger.info(`Connecting to Database at ${MONGODB_URL}`);
 mongoose.set('strictQuery', false);
-module.exports.dbConnect = mongoose.connect(MONGODB_URL, {connectTimeoutMS: 100000}).then(() => {
+const dbConnect = mongoose.connect(MONGODB_URL, {connectTimeoutMS: 100000}).then(() => {
   logger.info("Database Connection has been established successfully.");
 });
+
+module.exports =dbConnect

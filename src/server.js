@@ -1,5 +1,4 @@
-const { dbConnect } = require("./configs/db");
-
+const dbConnect  = require("./configs/db");
 let app   = require("./index");
 const logger = require("./configs/logger")
 
@@ -8,7 +7,7 @@ let server;
 dbConnect.then(
   () => {
     console.log('database connected')
-    const appPort = process.env.Port || 5005;
+    const appPort = process.env.PORT || 5005;
     server = app.listen(appPort, () => {
       logger.info(`App running on port ${appPort}...`);
     });
