@@ -2,13 +2,18 @@
   "name": "aproj",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "surendra",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/register": "^7.17.7",
+    "@babel/runtime": "^7.17.8",
+    "babel-loader": "^8.2.4",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
@@ -20,5 +25,11 @@
     "multer": "^1.4.5-lts.1",
     "puppeteer": "^21.2.0",
     "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-env": "^7.22.10",
+    "babel-jest": "^27.5.1"
   }
 }

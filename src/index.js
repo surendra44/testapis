@@ -12,7 +12,6 @@ const cors = require('cors')
 app.use(cors({
     origin:'https://prayasjankalyanfoundation.com'
 }));
-app.options("*", cors());
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
