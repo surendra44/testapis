@@ -11,6 +11,6 @@ router.post('/createMember',uploads.upload, memberController.createMember )
 router.put('/editMember',memberController.editMember )
 
 router.get('/loadIdCard/:id', memberController.loadIdCard)
-// router.get('/generateIdCard/:id', memberController.generateIdCard)
+router.get('/generateIdCard/:id', memberController.generateIdCard)
 
 module.exports = router

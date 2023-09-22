@@ -8,10 +8,10 @@ const app = express()
 const httpStatus = require("http-status")
 let path = require('path')
 const cors = require('cors')
-
-app.use(cors({
-    origin:'https://prayasjankalyanfoundation.com'
-}));
+app.use(cors())
+// app.use(cors({
+//     origin:'https://prayasjankalyanfoundation.com'
+// }));
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

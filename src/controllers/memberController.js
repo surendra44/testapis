@@ -104,53 +104,55 @@ exports.loadIdCard = async (req, res) => {
             validity: member[0].validity,
             photoUrl: member[0].photoUrl
         };
-        res.render('idcard', data);
+        // res.render('idcard', data);
+        res.send(data)
+        
     } catch (error) {
         logger.error(`An error occurred: ${error.message}`)
     }
 }
 
-// exports.generateIdCard = async (req, res) => {
-//     try {
-//         let mid = req.params.id
-//         const browser = await puppeteer.launch({ headless: "new" })
-//         const page = await browser.newPage()
-//         await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
-//             waitUntil: 'networkidle2'
-//         })
-//         await page.evaluate(() => {
-//             const images = document.querySelectorAll('img');
-//             const imagePromises = [];
+exports.generateIdCard = async (req, res) => {
+    try {
+        let mid = req.params.id
+        const browser = await puppeteer.launch({ headless: "new" })
+        const page = await browser.newPage()
+        await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
+            waitUntil: 'networkidle2'
+        })
+        await page.evaluate(() => {
+            const images = document.querySelectorAll('img');
+            const imagePromises = [];
 
-//             images.forEach((img) => {
-//                 if (!img.complete) {
-//                     const imageLoaded = new Promise((resolve) => {
-//                         img.addEventListener('load', resolve);
-//                         img.addEventListener('error', resolve);
-//                     });
-//                     imagePromises.push(imageLoaded);
-//                 }
-//             });
+            images.forEach((img) => {
+                if (!img.complete) {
+                    const imageLoaded = new Promise((resolve) => {
+                        img.addEventListener('load', resolve);
+                        img.addEventListener('error', resolve);
+                    });
+                    imagePromises.push(imageLoaded);
+                }
+            });
 
-//             return Promise.all(imagePromises);
-//         });
-//         await page.setViewport({ width: 1680, height: 1050 })
-//         dateToday = new Date()
-//         const pdfs = await page.pdf({
-//             path: `${path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")}`,
-//             printBackground: true,
-//             format: "A4"
-//         })
-//         await browser.close()
-//         const pdfUrl = path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")
-//         res.set({
-//             "Content-Type": "application/pdf",
-//             "Content-Length": pdfs.length
-//         })
-//         res.sendFile(pdfUrl)
+            return Promise.all(imagePromises);
+        });
+        await page.setViewport({ width: 1680, height: 1050 })
+        dateToday = new Date()
+        const pdfs = await page.pdf({
+            path: `${path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")}`,
+            printBackground: true,
+            format: "A4"
+        })
+        await browser.close()
+        const pdfUrl = path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Length": pdfs.length
+        })
+        res.sendFile(pdfUrl)
 
-//     } catch (error) {
-//         logger.error(`An error occurred: ${error.message}`)
+    } catch (error) {
+        logger.error(`An error occurred: ${error.message}`)
 
-//     }
-// }
+    }
+}
