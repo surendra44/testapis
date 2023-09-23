@@ -1,8 +1,10 @@
 let Members = require('../models/member')
 let Admins = require('../models/admin')
 const logger = require('../configs/logger')
-// const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer')
 const path = require('path')
+const fs =require('fs')
+let ejs = require('ejs')
 
 exports.getAdmins = async (req, res) => {
     const id = req.query.id
@@ -50,7 +52,7 @@ exports.createMember = async (req, res) => {
             remarks: bodyvar.remarks,
         })
         if (req.files && req.files.length != 0 && req.files[0].fieldname == 'photoUrl') {
-            memberData.photoUrl = url + '/' + req.files[0].filename
+            memberData.photoUrl = url + '/uploads/' + req.files[0].filename
         }
         let saved = await memberData.save()
         if (saved) {
@@ -91,22 +93,22 @@ exports.editMember = async (req, res) => {
 exports.loadIdCard = async (req, res) => {
     try {
         let mid = req.params.id
-        let member = await Members.find({ uniqueId: mid })
+        let member = await Members.findOne({phone: mid })
         const data = {
-            memberName: member[0].memberName,
-            designation: member[0].designation,
-            uniqueId: member[0].uniqueId,
-            email: member[0].email,
-            phoneNum: member[0].phoneNum,
-            fatherName: member[0].fatherName,
-            address: member[0].address,
-            aadharNum: member[0].aadharNum,
-            validity: member[0].validity,
-            photoUrl: member[0].photoUrl
+            memberName: member.memberName,
+            designation: member.designation,
+            uniqueId: member.uniqueId,
+            email: member.email,
+            phoneNum: member.phoneNum,
+            fatherName: member.fatherName,
+            address: member.address,
+            aadharNum: member.aadharNum,
+            validity: member.validity,
+            photoUrl: member.photoUrl
         };
         // res.render('idcard', data);
-        res.send(data)
-        
+        res.status(200).send(data)
+
     } catch (error) {
         logger.error(`An error occurred: ${error.message}`)
     }
@@ -115,11 +117,15 @@ exports.loadIdCard = async (req, res) => {
 exports.generateIdCard = async (req, res) => {
     try {
         let mid = req.params.id
+        let userdata = await Members.findOne({phoneNum: mid})
         const browser = await puppeteer.launch({ headless: "new" })
         const page = await browser.newPage()
-        await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
-            waitUntil: 'networkidle2'
-        })
+        await page.setExtraHTTPHeaders({
+            'Content-Security-Policy': 'default-src * data: blob:; style-src * data: blob: \'unsafe-inline\'; img-src * data: blob:'
+          });
+        // await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
+        //     waitUntil: 'networkidle2'
+        // })
         await page.evaluate(() => {
             const images = document.querySelectorAll('img');
             const imagePromises = [];
@@ -136,6 +142,13 @@ exports.generateIdCard = async (req, res) => {
 
             return Promise.all(imagePromises);
         });
+        let epath =  `${path.join(__dirname, '../views/idcard.ejs')}`
+        const ejsTemplate = fs.readFileSync(epath, 'utf8');
+        const html = ejs.render(ejsTemplate, userdata);
+    
+        // Set the HTML content of the page
+        await page.setContent(html);
+    
         await page.setViewport({ width: 1680, height: 1050 })
         dateToday = new Date()
         const pdfs = await page.pdf({

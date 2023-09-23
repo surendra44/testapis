@@ -1,41 +1,68 @@
-        body {
+.container {
     background-color: transparent;
     font-family: 'verdana';
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-flow: column;
 }
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        flex: 1;
+    }
+}
+
+/* Media query for desktops (1024px and above) */
+
+@media (min-width: 1024px) {
+    .container {
+        justify-content: center;
+    }
+}
+
 @font-face {
     font-family: 'Arya Regular';
-    src: url('../fonts/Arya-Regular.ttf') format('truetype');
+    src: url('../../assets/fonts/Arya-Regular.ttf') format('truetype');
     font-display: swap;
 }
+
 .id-card-holder {
     width: 325px;
     padding: 4px;
-    margin: 0 auto;
-    /* background-color: #1f1f1f; */
-   
+    margin: 5px auto;
     border-radius: 5px;
     position: relative;
-    overflow:hidden;
-    z-index:2
+    overflow: hidden;
+    background-color: black;
+    z-index: 2
 }
 
 .id-card {
-    height:500px;
-    display:flex;
-    flex-flow:column;
+    height: 500px;
+    min-width: 317px;
+    display: flex;
+    flex-flow: column;
     padding: 0px;
     padding-top: 10px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 1.5px 0px #b9b9b9;
 }
-.id-bg1{
-    background-image : url('../1.png');
+
+.id-bg1 {
+    background-image: url('../../assets/1.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
-.id-bg2{
-    background-image : url('../2.png');
+
+.id-bg2 {
+    background-image: url('../../assets/2.png');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -48,8 +75,8 @@
 .header {
     margin: 5px;
     margin-bottom: 10px;
-    display:flex;
-    flex-flow:row wrap;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .header img {
@@ -60,28 +87,33 @@
 .header h1 {
     width: 240px;
     font-family: 'Arya Regular';
-    margin:-10px;
+    margin: -10px;
 }
+
 .header h3 {
     width: 240px;
     color: #a11a00;
     font-family: 'Arya Regular';
-    font-weight:600;
+    font-weight: 600;
 }
 
 
 .photo {
     /* background-color:#f7d0ad; */
     border: 5px;
-    min-height:130px;
-    margin-top: 180px;
+    min-height: 130px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .photo img {
-    width: 170px;
+    width: 200px;
+    height: 200px;
     margin: 5px;
-    border-radius:50%;
+    border-radius: 50%;
 }
 
 h1 {
@@ -179,58 +211,65 @@ p {
 }
 
 .footer {
-    position:absolute;
-    bottom:0px;
+    position: absolute;
+    bottom: 0px;
     /* background-color:#f7d0ad7b; */
     padding: 5px 10px;
-    width:100%;
+    width: 100%;
     /* margin: 0 auto; */
     margin: 0px 3px 3px 0px;
-    font-family: 'verdana',
-    
+}
+
+.footer p {
+    text-align: center;
 }
 
 .details {
     text-align: left;
     padding-left: 5px;
     margin: 5px;
-    margin-bottom:1px;
+    margin-bottom: 1px;
 }
 
 .details p {
-    line-height:1.30;
-    font-size:15px;
+    line-height: 1.30;
+    font-size: 15px;
+    font-weight: semi-bold;
     font-family: 'Arya Regular';
     padding: 0px;
     color: #a11a00;
 
 }
+
 .details p strong {
     color: rgb(0, 0, 0);
 }
-.instruction{
-    margin:10px;
-    margin-top:0px;
-    padding-top:0px;
-    overflow:hidden;
+
+.instruction {
+    margin: 10px;
+    margin-top: 0px;
+    padding-top: 0px;
+    overflow: hidden;
 }
-.instruction h3{
-    font-family:'Arya Regular';
-    font-size:20px;
-    text-align:center;
+
+.instruction h3 {
+    font-family: 'Arya Regular';
+    font-size: 20px;
+    text-align: center;
     color: black;
 }
-.instruction h2{
-    font-family:'Arya Regular';
-    text-align:center;
+
+.instruction h2 {
+    font-family: 'Arya Regular';
+    text-align: center;
     color: #a11a00;
 }
-.instruction, p{
+
+.instruction,
+p {
     font-family: 'Arya Regular';
-    font-size:15px;
-    text-align:left;
-}
-.container{
-    display:flex;
-    flex-flow:row ;
+    font-size: 15px;
+    text-align: left;
+    font-weight: 500;
+
 }

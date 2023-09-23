@@ -13,7 +13,7 @@ var memberSchema = new mongoose.Schema({
     },
     email: { type: String },
     address: { type: String },
-    designation: { type: String },
+    designation: { type: String,default: 'Member' },
     uniqueId: { type: String, unique:true },
     fatherName: { type: String },
     aadharNum: { type: Number },
