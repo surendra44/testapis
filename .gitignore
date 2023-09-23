@@ -3,7 +3,10 @@
 .log
 .zip
 .jpg
+.jpeg
+.png
 node_modules
+uploads
 photos/
 idcards/
 error-logs.log
