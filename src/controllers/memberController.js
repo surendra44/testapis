@@ -1,26 +1,13 @@
 let Members = require('../models/member')
-let Admins = require('../models/admin')
 const logger = require('../configs/logger')
-const puppeteer = require('puppeteer')
+// const puppeteer = require('puppeteer')
 const path = require('path')
-const fs =require('fs')
+const fs = require('fs')
 let ejs = require('ejs')
 
-exports.getAdmins = async (req, res) => {
-    const id = req.query.id
-    try {
-        var admin = await Admins.findOne({ _id: id })
-        // console.log(admin, " fetch admin");
-        res.status(200).send(admin);
-    }
-    catch (error) {
-        logger.error(`An error occurred: ${error.message}`)
-        res.send(error);
-    }
-}
+
 
 exports.getMembers = async (req, res) => {
-    const id = req.query.id
     try {
         var memberData = await Members.find()
         res.status(200).send(memberData);
@@ -35,11 +22,30 @@ exports.createMember = async (req, res) => {
     try {
         const url = req.protocol + '://' + req.get("host");
         const bodyvar = req.body
-        const timestamp = new Date().getTime(); // Get current timestamp in milliseconds
-        let unid =timestamp.toString().slice(-8);
         console.log(bodyvar, 'body')
+        const dateToday = new Date() // Get current timestamp in milliseconds
+        let validityDate;
+        switch (bodyvar.validity) {
+            case "1 साल":
+                validityDate = dateToday.setFullYear(dateToday.getFullYear() + 1);
+                console.log(validityDate, 'validitydate');
+                break;
+
+            case "2 साल":
+                validityDate = dateToday.setFullYear(dateToday.getFullYear() + 2);
+                console.log(validityDate, 'validitydate');
+                break;
+            case "5 साल":
+                validityDate = dateToday.setFullYear(dateToday.getFullYear() + 5);
+                console.log(validityDate, 'validitydate');
+                break;
+
+        }
+        let timestamp = dateToday.getTime()
+        let unid = timestamp.toString().slice(-8);
         const memberData = new Members({
             memberName: bodyvar.memberName,
+            relation: bodyvar.relation,
             fatherName: bodyvar.fatherName,
             aadharNum: bodyvar.aadharNum,
             uniqueId: unid,
@@ -47,12 +53,12 @@ exports.createMember = async (req, res) => {
             email: bodyvar.email,
             address: bodyvar.address,
             designation: bodyvar.designation,
-            validity: bodyvar.validity,
+            validity: validityDate,
             gender: bodyvar.gender,
             remarks: bodyvar.remarks,
         })
         if (req.files && req.files.length != 0 && req.files[0].fieldname == 'photoUrl') {
-            memberData.photoUrl = url + '/uploads/' + req.files[0].filename
+            memberData.photoUrl = url+'/uploads/'+ req.files[0].filename
         }
         let saved = await memberData.save()
         if (saved) {
@@ -93,9 +99,10 @@ exports.editMember = async (req, res) => {
 exports.loadIdCard = async (req, res) => {
     try {
         let mid = req.params.id
-        let member = await Members.findOne({phone: mid })
+        let member = await Members.findOne({ phoneNum: mid })
         const data = {
             memberName: member.memberName,
+            relation: member.relation,
             designation: member.designation,
             uniqueId: member.uniqueId,
             email: member.email,
@@ -115,57 +122,57 @@ exports.loadIdCard = async (req, res) => {
 }
 
 exports.generateIdCard = async (req, res) => {
-    try {
-        let mid = req.params.id
-        let userdata = await Members.findOne({phoneNum: mid})
-        const browser = await puppeteer.launch({ headless: "new" })
-        const page = await browser.newPage()
-        await page.setExtraHTTPHeaders({
-            'Content-Security-Policy': 'default-src * data: blob:; style-src * data: blob: \'unsafe-inline\'; img-src * data: blob:'
-          });
-        // await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
-        //     waitUntil: 'networkidle2'
-        // })
-        await page.evaluate(() => {
-            const images = document.querySelectorAll('img');
-            const imagePromises = [];
+    // try {
+    //     let mid = req.params.id
+    //     let userdata = await Members.findOne({ phoneNum: mid })
+    //     const browser = await puppeteer.launch({ headless: "new" })
+    //     const page = await browser.newPage()
+    //     await page.setExtraHTTPHeaders({
+    //         'Content-Security-Policy': 'default-src * data: blob:; style-src * data: blob: \'unsafe-inline\'; img-src * data: blob:'
+    //     });
+    //     await page.goto(`${req.protocol}://${req.get('host')}` + `/members/loadIdCard/${mid}`, {
+    //         waitUntil: 'networkidle2'
+    //     })
+    //     await page.evaluate(() => {
+    //         const images = document.querySelectorAll('img');
+    //         const imagePromises = [];
 
-            images.forEach((img) => {
-                if (!img.complete) {
-                    const imageLoaded = new Promise((resolve) => {
-                        img.addEventListener('load', resolve);
-                        img.addEventListener('error', resolve);
-                    });
-                    imagePromises.push(imageLoaded);
-                }
-            });
+    //         images.forEach((img) => {
+    //             if (!img.complete) {
+    //                 const imageLoaded = new Promise((resolve) => {
+    //                     img.addEventListener('load', resolve);
+    //                     img.addEventListener('error', resolve);
+    //                 });
+    //                 imagePromises.push(imageLoaded);
+    //             }
+    //         });
 
-            return Promise.all(imagePromises);
-        });
-        let epath =  `${path.join(__dirname, '../views/idcard.ejs')}`
-        const ejsTemplate = fs.readFileSync(epath, 'utf8');
-        const html = ejs.render(ejsTemplate, userdata);
-    
-        // Set the HTML content of the page
-        await page.setContent(html);
-    
-        await page.setViewport({ width: 1680, height: 1050 })
-        dateToday = new Date()
-        const pdfs = await page.pdf({
-            path: `${path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")}`,
-            printBackground: true,
-            format: "A4"
-        })
-        await browser.close()
-        const pdfUrl = path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")
-        res.set({
-            "Content-Type": "application/pdf",
-            "Content-Length": pdfs.length
-        })
-        res.sendFile(pdfUrl)
+    //         return Promise.all(imagePromises);
+    //     });
+    //     let epath = `${path.join(__dirname, '../views/idcard.ejs')}`
+    //     const ejsTemplate = fs.readFileSync(epath, 'utf8');
+    //     const html = ejs.render(ejsTemplate, userdata);
 
-    } catch (error) {
-        logger.error(`An error occurred: ${error.message}`)
+    //     // Set the HTML content of the page
+    //     await page.setContent(html);
 
-    }
+    //     await page.setViewport({ width: 1680, height: 1050 })
+    //     dateToday = new Date()
+    //     const pdfs = await page.pdf({
+    //         path: `${path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")}`,
+    //         printBackground: true,
+    //         format: "A4"
+    //     })
+    //     await browser.close()
+    //     const pdfUrl = path.join(__dirname, '../public/idcards', dateToday.getTime() + ".pdf")
+    //     res.set({
+    //         "Content-Type": "application/pdf",
+    //         "Content-Length": pdfs.length
+    //     })
+    //     res.sendFile(pdfUrl)
+
+    // } catch (error) {
+    //     logger.error(`An error occurred: ${error.message}`)
+
+    // }
 }
