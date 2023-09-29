@@ -7,6 +7,8 @@ const verifyToken = require("../middlewares/tokenVerify")
 const router = express.Router()
 
 router.post('/login', adminController.login)
+router.post('/signup', adminController.signup)
+
 router.get('/getAdmin', adminController.getAdmins)
 router.get('/getEvent', adminController.getEvents)
 router.post('/createMember', uploads.upload,  verifyToken.verifyToken,  memberController.createMember )

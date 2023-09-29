@@ -42,6 +42,27 @@ exports.login = async (req, res) => {
     }
 }
 
+exports.signup = async (req,res)=>{
+        try {
+            const { fullName,email,phone,password,remarks } = req.body
+            const adminData = new Admins({
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                password: password,
+                remarks: remarks
+            })
+            let payload = { adminId: adminData._id, phone: adminData.phone }
+            token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '360000s' })
+            let message = "signup success"
+            res.status(200).send({result, message});
+        }
+        catch (error) {
+            console.log(error)
+            res.status(400).send(error)
+        }
+}
+
 exports.contactForm = async (req, res) => {
     try {
         const bodyvar = req.body
@@ -54,10 +75,11 @@ exports.contactForm = async (req, res) => {
         })
 
         let saved = await contactData.save()
-        if (saved) {
-            let message = "form submission success"
-            res.status(200).send({ saved, message })
+        if (!saved) {
+            res.status(400).send('Not saved, Please try again')
         }
+        let message = "form submission success"
+        res.status(200).send({ saved, message })
     }
     catch (error) {
         res.status(400).send(error);
@@ -79,10 +101,11 @@ exports.createEvent = async (req, res) => {
             eventData.photoUrl = url + '/uploads/' + req.files[0].filename
         }
         let saved = await eventData.save()
-        if (saved) {
-            let message = "event created successfully"
-            res.status(200).send({ saved, message })
+        if (!saved) {
+            res.status(400).send('Not saved, Please try again')
         }
+        let message = "event created successfully"
+        res.status(200).send({ saved, message })
     }
     catch (error) {
         res.status(400).send(error);
@@ -93,6 +116,9 @@ exports.createEvent = async (req, res) => {
 exports.getEvents = async (req, res) => {
     try {
         var eventData = await Events.find()
+        if (!eventData) {
+            res.status(400).send('Not found, Please try again')
+        }
         res.status(200).send(eventData);
     }
     catch (error) {
