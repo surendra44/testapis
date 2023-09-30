@@ -11,10 +11,10 @@ router.post('/signup', adminController.signup)
 
 router.get('/getAdmin', adminController.getAdmins)
 router.get('/getEvent', adminController.getEvents)
-router.post('/createMember', uploads.upload,  verifyToken.verifyToken,  memberController.createMember )
 router.post('/createEvent', uploads.upload,  verifyToken.verifyToken,  adminController.createEvent )
-router.put('/editMember', verifyToken.verifyToken, memberController.editMember )
-
+router.put('/editMember/:id', verifyToken.verifyToken, adminController.editMember )
+router.get('/getPendingMembers', verifyToken.verifyToken, adminController.getMembers)
 router.post('/contactForm',  adminController.contactForm )
+router.post('/uploadGallery',uploads.upload, adminController.uploadGallery)
 
 module.exports = router

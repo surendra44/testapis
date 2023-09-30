@@ -9,7 +9,7 @@ let html_to_pdf = require('html-pdf-node');
 
 exports.getMembers = async (req, res) => {
     try {
-        var memberData = await Members.find()
+        var memberData = await Members.find({isApproved:true})
         res.status(200).send(memberData);
     }
     catch (error) {
@@ -72,34 +72,39 @@ exports.createMember = async (req, res) => {
     }
 }
 
-exports.editMember = async (req, res) => {
+exports.loadIdCard = async (req, res) => {
     try {
-        const bodyvar = req.body
-        console.log(bodyvar, 'bodyreq')
-        const id = req.params.id
-        const memberUpdate = {
-            memberName: bodyvar.memberName,
-            phone: bodyvar.phone,
-            email: bodyvar.email,
-            address: bodyvar.address,
-            designation: bodyvar.designation,
-            gender: bodyvar.gender,
-            remarks: bodyvar.remarks,
-        }
-        let updated = await Members.findByIdAndUpdate({ _id: id }, memberUpdate, { new: true })
-        let message = "member update success"
-        res.send({ updated, message })
-    }
-    catch (error) {
-        res.send(error);
+        console.log('insideloadid')
+        let mid = req.params.id
+        let member = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
+        const data = {
+            memberName: member.memberName,
+            relation: member.relation,
+            designation: member.designation,
+            uniqueId: member.uniqueId,
+            email: member.email,
+            phoneNum: member.phoneNum,
+            fatherName: member.fatherName,
+            address: member.address,
+            aadharNum: member.aadharNum,
+            validity: member.validity,
+            photoUrl: member.photoUrl
+        };
+        // res.render('idcard', data);
+        res.status(200).send(data)
+
+    } catch (error) {
         logger.error(`An error occurred: ${error.message}`)
     }
 }
-
-exports.loadIdCard = async (req, res) => {
+exports.loadIdCard2 = async (req, res) => {
     try {
+        console.log('insideloadid2')
         let mid = req.params.id
-        let member = await Members.findOne({ phoneNum: mid })
+        let member = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
+        if(!member){
+            return res.status.send("Not found")
+        }
         const data = {
             memberName: member.memberName,
             relation: member.relation,
@@ -179,26 +184,31 @@ exports.loadIdCard = async (req, res) => {
 
 exports.generateIdCard = async (req,res) => {
     try {
-    let phoneparam = req.params.id
-    let dynamicData = await Members.findOne({phoneNum:phoneparam})
-      let html = await ejs.renderFile(path.join(__dirname, '../views/idcard.ejs'), dynamicData );
-      let options = { format: 'A4', args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+    let mid = req.params.id
+    let dynamicData = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
+    if(!dynamicData){
+        res.status(400).error("Not Found")
+    }
+    //   let html = await ejs.renderFile(path.join(__dirname, '../views/idcard.ejs'), dynamicData );
+      let options = { format: 'A4', landscape:true, printBackground:true, args: ['--no-sandbox', '--disable-setuid-sandbox'] };
       const pdfBuffer = await new Promise((resolve, reject) => {
         // html_to_pdf.generatePdf({content:html},options).then(buffer => {
-        html_to_pdf.generatePdf({url:"" },options).then(buffer => {
+        html_to_pdf.generatePdf({url:`${req.protocol}://${req.get('host')}` + `/members/loadIdCard2/${mid}` },options).then(buffer => {
           console.log("PDF Buffer:-", buffer);
           resolve(buffer)}).catch(err=>{
             console.error(err);
             reject('Error generating PDF');
         });
       });
-      
-  
-      // Save the PDF to a file
-      // fs.writeFileSync(path.join(__dirname, '../../receipts/donation_receipt.pdf'), pdfBuffer);
-       fs.writeFileSync(path.join(__dirname, `../../views${dynamicData._id}.pdf`), pdfBuffer);
-  
-      return { dynamicData, pdfBuffer };
+      let filepath = path.join(__dirname, `../public/idcards/${dynamicData._id}.pdf`)
+       fs.writeFileSync(filepath, pdfBuffer);
+      res.status(200).sendFile(filepath, function (err) {
+        if (err) {
+            next(err);
+        } else {
+            console.log('Sent:', filepath);
+        }
+    })
     } catch (e) {
       console.error(e);
       throw new Error('Error generating or saving PDF');

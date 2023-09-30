@@ -13,15 +13,18 @@ var memberSchema = new mongoose.Schema({
     },
     email: { type: String },
     address: { type: String },
-    designation: { type: String,default: 'Member' },
-    uniqueId: { type: String, unique:true },
+    designation: { type: String, default: 'Member' },
+    uniqueId: { type: String, unique: true },
     fatherName: { type: String },
     relation: { type: String },
     aadharNum: { type: Number },
-    validity: { type: Date },
+    validity: {
+        type: Date,
+    },
     photoUrl: { type: String },
     gender: { type: String },
     remarks: { type: String },
+    isApproved: { type: Boolean, default: false }
 })
 
 var memberModel = mongoose.model('Members', memberSchema)

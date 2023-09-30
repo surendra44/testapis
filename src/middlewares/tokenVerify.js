@@ -12,7 +12,7 @@ function verifyToken(req,res,next){
     if (!payload) {
         return res.status(401).send('Unauthorized request')
     }
-    console.log(payload.userId);
+    console.log(payload,'user logged in')
     next()
     
 }
@@ -28,12 +28,6 @@ function adminVerify(req,res,next){
     let payload = jwt.verify(token, process.env.SECRET_KEY)
     if (!payload) {
         return res.status(401).send('Unauthorized request')
-    }
-    if (payload.isAdmin == false){
-        return res.status(401).send('Unauthorized request')
-    }
-    if (payload.accessRole != "superAdmin"){
-        return res.status(401).send('Access Denied')
     }
     else{
         // console.log(payload.isAdmin+payload.userId+"login success");

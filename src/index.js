@@ -9,6 +9,7 @@ const app = express()
 const httpStatus = require("http-status")
 let path = require('path')
 const cors = require('cors')
+
 app.use(cors())
 // app.use((req, res, next) => {
 //     res.header('Access-Control-Allow-Origin', 'https://prayasjankalyanfoundation.com'); // Replace with your main domain

@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 
 var adminSchema = new mongoose.Schema({
     fullName: { type: String, required: true },
-    phone: {
+    phoneNum: {
         type: String, unique: true, validate: {
             validator: function (v) {
                 return /^\d{10}$/.test(v); // regex to match 10 digit mobile number

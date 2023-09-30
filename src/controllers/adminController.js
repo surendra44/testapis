@@ -1,8 +1,10 @@
 let Admins = require('../models/admin')
 let Events = require('../models/event')
 let ContactForm = require('../models/contactform')
+let Gallery = require('../models/gallery')
+let Members = require('../models/member')
 const jwt = require('jsonwebtoken');
-const bcrypt = require("bcryptjs");
+let galleryUrls = require('../configs/gallery')
 
 exports.getAdmins = async (req, res) => {
     const id = req.query.id
@@ -19,16 +21,16 @@ exports.getAdmins = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
-        let phone = req.body.phone
+        let phone = req.body.phoneNum
         let password = req.body.password;
-        const adminData = await Admins.findOne({ phone: phone });
+        const adminData = await Admins.findOne({ phoneNum: phone });
         if (!adminData) {
-            return errorResponse(req, res, httpStatus.UNAUTHORIZED, "Admin not found")
+            return res.status(400).send("Not found! please try again")
         }
-        const match = await bcrypt.compare(password, adminData.password)
-        if (match) {
+        // const match = await bcrypt.compare(password, adminData.password)
+        if (password === adminData.password) {
             let message = 'Login Success'
-            let payload = { adminId: adminData._id, phone: adminData.phone }
+            let payload = { adminId: adminData._id, phone: adminData.phoneNum }
             let token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '360000s' })
             res.status(200).send({ token, message })
         } else {
@@ -44,15 +46,16 @@ exports.login = async (req, res) => {
 
 exports.signup = async (req,res)=>{
         try {
-            const { fullName,email,phone,password,remarks } = req.body
+            const { fullName,email,phoneNum,password,remarks } = req.body
             const adminData = new Admins({
                 fullName: fullName,
                 email: email,
-                phone: phone,
+                phoneNum: phoneNum,
                 password: password,
                 remarks: remarks
             })
-            let payload = { adminId: adminData._id, phone: adminData.phone }
+            let result = await adminData.save()
+            let payload = { adminId: adminData._id, phone: adminData.phoneNum }
             token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '360000s' })
             let message = "signup success"
             res.status(200).send({result, message});
@@ -61,6 +64,52 @@ exports.signup = async (req,res)=>{
             console.log(error)
             res.status(400).send(error)
         }
+}
+
+exports.editMember = async (req, res) => {
+    try {
+        const bodyvar = req.body
+        console.log(bodyvar, 'bodyreq')
+        const id = req.params.id
+        const memberUpdate = {
+            memberName: bodyvar.memberName,
+            relation: bodyvar.relation,
+            fatherName: bodyvar.fatherName,
+            aadharNum: bodyvar.aadharNum,
+            phoneNum: bodyvar.phoneNum,
+            email: bodyvar.email,
+            address: bodyvar.address,
+            designation: bodyvar.designation,
+            validity: bodyvar.validity,
+            gender: bodyvar.gender,
+            remarks: bodyvar.remarks,
+            isApproved:true
+        }
+        let updated = await Members.findByIdAndUpdate({ _id: id }, memberUpdate, { new: true })
+        let message = "member update success"
+        res.send({ updated, message })
+    }
+    catch (error) {
+        res.send(error);
+        logger.error(`An error occurred: ${error.message}`)
+    }
+}
+
+exports.getMembers = async (req, res) => {
+    try {
+        let memberData = await Members.aggregate([
+            {$match: {isApproved:false}}
+        ])
+        if(!memberData){
+            res.send("Not found")
+        }
+        console.log(memberData, 'memberdata')
+        res.status(200).send(memberData);
+    }
+    catch (error) {
+        res.send(error);
+        console.log(error,'errorinpendgmmbr')
+    }
 }
 
 exports.contactForm = async (req, res) => {
@@ -127,4 +176,18 @@ exports.getEvents = async (req, res) => {
     }
 
 
+}
+
+exports.uploadGallery = async (req,res)=>{
+    let url = req.protocol + '://' + req.get("host");
+    console.log(req.files, 'fielrecvd')
+    let gallery =await Gallery.findById({_id:"6517a49267fcaffbcef98ebd"})
+    if (req.files && req.files.length != 0 && req.files[0].fieldname == 'gallery') {
+            req.files.forEach((element) => {
+            let fvalue =  url + '/' + element.filename
+            gallery.galleryUrlsArray.push(fvalue)
+        })
+    }
+    let result = await gallery.save()
+    res.status(200).send(result)
 }
