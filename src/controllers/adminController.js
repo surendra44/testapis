@@ -5,6 +5,7 @@ let Gallery = require('../models/gallery')
 let Members = require('../models/member')
 const jwt = require('jsonwebtoken');
 let galleryUrls = require('../configs/gallery')
+let nodemailer = require('nodemailer')
 
 exports.getAdmins = async (req, res) => {
     const id = req.query.id
@@ -44,26 +45,26 @@ exports.login = async (req, res) => {
     }
 }
 
-exports.signup = async (req,res)=>{
-        try {
-            const { fullName,email,phoneNum,password,remarks } = req.body
-            const adminData = new Admins({
-                fullName: fullName,
-                email: email,
-                phoneNum: phoneNum,
-                password: password,
-                remarks: remarks
-            })
-            let result = await adminData.save()
-            let payload = { adminId: adminData._id, phone: adminData.phoneNum }
-            token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '360000s' })
-            let message = "signup success"
-            res.status(200).send({result, message});
-        }
-        catch (error) {
-            console.log(error)
-            res.status(400).send(error)
-        }
+exports.signup = async (req, res) => {
+    try {
+        const { fullName, email, phoneNum, password, remarks } = req.body
+        const adminData = new Admins({
+            fullName: fullName,
+            email: email,
+            phoneNum: phoneNum,
+            password: password,
+            remarks: remarks
+        })
+        let result = await adminData.save()
+        let payload = { adminId: adminData._id, phone: adminData.phoneNum }
+        token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '360000s' })
+        let message = "signup success"
+        res.status(200).send({ result, message });
+    }
+    catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
 }
 
 exports.editMember = async (req, res) => {
@@ -83,7 +84,7 @@ exports.editMember = async (req, res) => {
             validity: bodyvar.validity,
             gender: bodyvar.gender,
             remarks: bodyvar.remarks,
-            isApproved:true
+            isApproved: true
         }
         let updated = await Members.findByIdAndUpdate({ _id: id }, memberUpdate, { new: true })
         let message = "member update success"
@@ -98,9 +99,9 @@ exports.editMember = async (req, res) => {
 exports.getMembers = async (req, res) => {
     try {
         let memberData = await Members.aggregate([
-            {$match: {isApproved:false}}
+            { $match: { isApproved: false } }
         ])
-        if(!memberData){
+        if (!memberData) {
             res.send("Not found")
         }
         console.log(memberData, 'memberdata')
@@ -108,7 +109,7 @@ exports.getMembers = async (req, res) => {
     }
     catch (error) {
         res.send(error);
-        console.log(error,'errorinpendgmmbr')
+        console.log(error, 'errorinpendgmmbr')
     }
 }
 
@@ -178,16 +179,61 @@ exports.getEvents = async (req, res) => {
 
 }
 
-exports.uploadGallery = async (req,res)=>{
+exports.uploadGallery = async (req, res) => {
     let url = req.protocol + '://' + req.get("host");
     console.log(req.files, 'fielrecvd')
-    let gallery =await Gallery.findById({_id:"6517a49267fcaffbcef98ebd"})
+    let gallery = await Gallery.findById({ _id: "6517a49267fcaffbcef98ebd" })
     if (req.files && req.files.length != 0 && req.files[0].fieldname == 'gallery') {
-            req.files.forEach((element) => {
-            let fvalue =  url + '/' + element.filename
+        req.files.forEach((element) => {
+            let fvalue = url + '/uploads/' + element.filename
             gallery.galleryUrlsArray.push(fvalue)
         })
     }
     let result = await gallery.save()
     res.status(200).send(result)
+}
+
+exports.sendEmail = async (req, res) => {
+    let userid = req.params.id
+    let usermail = req.body.email
+    let filepath = path.join(__dirname, '../public/idcards/6517c0cd6754e51cc74f5078.pdf')
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.USER,
+            pass: process.env.PASS,
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    let info = await transporter.sendMail({
+        from: '"Prayas jan kalyan foundation" <prayasjankalyanfoundation@gmail.com>',
+        to: `${usermail}`,
+        subject: "ID Card",
+        attachments: [
+            {
+                filename: "xyz.pdf",
+                path: filepath
+            }
+        ],
+        html: `<h2>your id card from prayas jan kalyan foundation membership </h2>
+        <p>please find it in attachments</p>`,
+    });
+}
+
+exports.getGallery = async (req, res) => {
+    try {
+        let gallery = await Gallery.findById({ _id: "6517a49267fcaffbcef98ebd" })
+        if (!gallery) {
+            res.status(200).send("Not found")
+        }
+        res.status(200).send(gallery)
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }

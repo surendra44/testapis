@@ -29,7 +29,8 @@ app.use('/uploads', express.static('uploads'));
 
 
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+// app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
     res.status(200).send('root api')

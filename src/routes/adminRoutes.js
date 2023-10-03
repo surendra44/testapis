@@ -16,5 +16,7 @@ router.put('/editMember/:id', verifyToken.verifyToken, adminController.editMembe
 router.get('/getPendingMembers', verifyToken.verifyToken, adminController.getMembers)
 router.post('/contactForm',  adminController.contactForm )
 router.post('/uploadGallery',uploads.upload, adminController.uploadGallery)
+router.post('/sendEmail', adminController.sendEmail)
+router.get('/getGallery', adminController.getGallery)
 
 module.exports = router

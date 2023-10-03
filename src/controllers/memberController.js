@@ -9,7 +9,7 @@ let html_to_pdf = require('html-pdf-node');
 
 exports.getMembers = async (req, res) => {
     try {
-        var memberData = await Members.find({isApproved:true})
+        var memberData = await Members.find({ isApproved: true })
         res.status(200).send(memberData);
     }
     catch (error) {
@@ -58,7 +58,7 @@ exports.createMember = async (req, res) => {
             remarks: bodyvar.remarks,
         })
         if (req.files && req.files.length != 0 && req.files[0].fieldname == 'photoUrl') {
-            memberData.photoUrl = url+'/uploads/'+ req.files[0].filename
+            memberData.photoUrl = url + '/uploads/' + req.files[0].filename
         }
         let saved = await memberData.save()
         if (saved) {
@@ -76,7 +76,7 @@ exports.loadIdCard = async (req, res) => {
     try {
         console.log('insideloadid')
         let mid = req.params.id
-        let member = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
+        let member = await Members.findOne({ $and: [{ phoneNum: mid }, { isApproved: true }] })
         const data = {
             memberName: member.memberName,
             relation: member.relation,
@@ -101,8 +101,8 @@ exports.loadIdCard2 = async (req, res) => {
     try {
         console.log('insideloadid2')
         let mid = req.params.id
-        let member = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
-        if(!member){
+        let member = await Members.findOne({ phoneNum: mid })
+        if (!member) {
             return res.status.send("Not found")
         }
         const data = {
@@ -182,35 +182,94 @@ exports.loadIdCard2 = async (req, res) => {
 //     // }
 // }
 
-exports.generateIdCard = async (req,res) => {
+// exports.generateIdCard = async (req, res) => {
+//     try {
+//         let mid = req.params.id
+//         // let dynamicData = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
+//         let dynamicData = await Members.findOne({ phoneNum: mid })
+//         if (!dynamicData) {
+//             res.status(400).error("Not Found")
+//         }
+//         // let html = await ejs.render('idcard.ejs', dynamicData );
+//         // console.log(html,'htmloutput')
+//         let options = { format: 'A4', landscape: true, printBackground: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+//         const pdfBuffer = await new Promise((resolve, reject) => {
+//             // html_to_pdf.generatePdf({content:html},options).then(buffer => {
+//             html_to_pdf.generatePdf({ url: `${req.protocol}://${req.get('host')}` + `/members/loadIdCard2/${mid}` }, options).then(buffer => {
+//                 console.log("PDF Buffer:-", buffer);
+//                 resolve(buffer)
+//             }).catch(err => {
+//                 console.error(err);
+//                 reject('Error generating PDF');
+//             });
+//         });
+//         let filepath = path.join(__dirname, `../public/idcards/${dynamicData._id}.pdf`)
+//         //    fs.writeFileSync(filepath, pdfBuffer);
+
+//         // Create a write stream to write the PDF data to the file
+//         const writeStream = fs.createWriteStream(filepath);
+
+//         writeStream.write(pdfBuffer);
+//         writeStream.end();
+
+//         // Listen for the 'finish' event to know when the write operation is complete
+//         writeStream.on('finish', () => {
+//             console.log('PDF file has been written successfully.');
+//             res.status(200).sendFile(filepath, function (err) {
+//                 if (err) {
+//                     next(err);
+//                 } else {
+//                     console.log('Sent:', filepath);
+//                 }
+//             });
+//         });
+
+//         // Handle errors that might occur during the write operation
+//         writeStream.on('error', err => {
+//             console.error('Error writing PDF file:', err);
+//             reject('Error writing PDF file');
+//         })
+//     }catch(error){
+//         res.status(400).send(error)
+//     }
+// };
+
+
+
+exports.generateIdCard = async (req, res) => {
     try {
-    let mid = req.params.id
-    let dynamicData = await Members.findOne({$and:[{ phoneNum: mid}, {isApproved:true}]})
-    if(!dynamicData){
-        res.status(400).error("Not Found")
-    }
-    //   let html = await ejs.renderFile(path.join(__dirname, '../views/idcard.ejs'), dynamicData );
-      let options = { format: 'A4', landscape:true, printBackground:true, args: ['--no-sandbox', '--disable-setuid-sandbox'] };
-      const pdfBuffer = await new Promise((resolve, reject) => {
-        // html_to_pdf.generatePdf({content:html},options).then(buffer => {
-        html_to_pdf.generatePdf({url:`${req.protocol}://${req.get('host')}` + `/members/loadIdCard2/${mid}` },options).then(buffer => {
-          console.log("PDF Buffer:-", buffer);
-          resolve(buffer)}).catch(err=>{
-            console.error(err);
-            reject('Error generating PDF');
-        });
-      });
-      let filepath = path.join(__dirname, `../public/idcards/${dynamicData._id}.pdf`)
-       fs.writeFileSync(filepath, pdfBuffer);
-      res.status(200).sendFile(filepath, function (err) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Sent:', filepath);
+        let mid = req.params.id
+        let dynamicData = await Members.findOne({ phoneNum: mid })
+        if (!dynamicData) {
+            res.status(400).error("Not Found")
         }
-    })
-    } catch (e) {
-      console.error(e);
-      throw new Error('Error generating or saving PDF');
+        const url = `${req.protocol}://${req.get('host')}/members/loadIdCard2/${mid}`;
+        const pdfFilePath = path.join(__dirname, `../public/idcards/${dynamicData._id}.pdf`);
+
+        // Generate the PDF and write it directly to a file on the server
+        let options = { format: 'A4', landscape: true, printBackground: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+        html_to_pdf
+            .generatePdf({ url }, options)
+            .then(() => {
+                console.log('PDF generated successfully');
+
+                // Send the file as a response to the client
+                res.status(200).sendFile(pdfFilePath, (err) => {
+                    if (err) {
+                        console.error('Error sending PDF:', err);
+                        // Handle the error if needed
+                    } else {
+                        console.log('Sent PDF:', pdfFilePath);
+                    }
+                });
+            }).catch((err) => {
+                console.error('Error generating PDF:', err);
+                // reject('Error generating PDF');
+                throw err
+            });
+    } catch (err) {
+        console.error(err);
+        throw new Error('Error generating or saving PDF');
     }
-  };
+
+}
